@@ -1,5 +1,5 @@
 import {Ant} from "./Ant"
-class Board{
+export class Board{
 
     /**
      * true means white square
