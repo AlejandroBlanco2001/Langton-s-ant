@@ -21,6 +21,7 @@ export class Ant{
         }else{
             this.x -= 1;
         }
+        console.log(this.position());
     }
 
     /*
@@ -31,7 +32,7 @@ export class Ant{
     */
     private rotate(color: boolean){
         var sign : number = color == true ? -1: 1; 
-        this.facing += Math.PI * sign;
+        this.facing += 90 * sign;
         if(this.facing == 360) this.facing = 0;
         if(this.facing < 0) this.facing = 270; 
         return {
@@ -41,7 +42,7 @@ export class Ant{
     }
 
     position(){
-        return `Posicion (${this.x},${this.y})`
+        return `Position (${this.x},${this.y})`
     }
 
 }
