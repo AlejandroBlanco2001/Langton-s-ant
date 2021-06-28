@@ -1,0 +1,15 @@
+h1{
+    font-family: 'Indie Flower', cursive;
+}
+
+/* Grid container of the cells*/
+#container{
+    display: grid;
+}
+
+/* Cells of the grid */
+.cell{
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+}
