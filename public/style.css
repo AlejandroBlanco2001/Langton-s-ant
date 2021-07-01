@@ -9,7 +9,10 @@ h1{
 
 /* Cells of the grid */
 .cell{
+    display: block;
     background-color: white;
+    height: 50px;
+    width: 100%;
     text-align: center;
-    border: 1px solid black;
-}
+    border: 1px solid black
+};
