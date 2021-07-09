@@ -3,11 +3,33 @@ body{
 }
 
 h1{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
     color: #d3d3d3;
 }
 
 h4{
+    font-family: 'Roboto', sans-serif;
+    color: #d3d3d3;
+}
+
+a{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #d3d3d3;
+}
+
+#ant{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid white;
+}
+
+#author{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
     color: #d3d3d3;
 }
 
@@ -35,17 +57,18 @@ h4{
     text-align: center;
 }
 
-/* Items in the menu */
-.centerItem{
+#footer h2{
+    font-family: 'Roboto', sans-serif;
+    color: #d3d3d3;
 }
 
 /* Cells of the grid */
 .cell{
     display: block;
-    background-color: white;
+    background-color: transparent;
     height: 100%;
     width: 100%;
     text-align: center;
-    border: 1px solid black
+    border: 1px solid #5A5A5A;
 }
 

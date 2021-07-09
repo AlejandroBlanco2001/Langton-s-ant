@@ -10,7 +10,12 @@ var board: Board;
 var timePerUpdate : number = 1000;
 
 let speedButtons = document.getElementsByClassName("speedButtons");
-Array.prototype.forEach.call(speedButtons,function(button){console.log(button);});
+Array.prototype.forEach.call(speedButtons,function(button){
+    button.addEventListener("click",function(){
+        timePerUpdate = Number(button.value);
+        alert("TIME PER UPDATE : " + timePerUpdate);
+    });
+;})
 // Cells of the grid
 var cells : any[] = [];
 
@@ -43,9 +48,9 @@ function paint(coordinates: any){
     let matrixCoord = Util.mapCoordinates(board.dimension,coordinates);
     let color = board.getColor(matrixCoord);
     if(color == true){
-        (<HTMLElement> cells[matrixCoord.x][matrixCoord.y]).style.backgroundColor = "#000000";
+        (<HTMLElement> cells[matrixCoord.x][matrixCoord.y]).style.backgroundColor = "#5564eb";
     }else{
-        (<HTMLElement> cells[matrixCoord.x][matrixCoord.y]).style.backgroundColor = "#ffffff";
+        (<HTMLElement> cells[matrixCoord.x][matrixCoord.y]).style.backgroundColor = "#141414";
     }
 }
 

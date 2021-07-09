@@ -4,29 +4,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <title>Langton Ant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Roboto&display=swap" rel="stylesheet">     <title>Langton's Ant</title>
 </head>
 <body>
-    <h1>Langton Ant Visualization</h1>
+    <h1 id="headerTitle">Langton's Ant Visualization</h1>
+    <div id="author">Made by <a href="https://github.com/AlejandroBlanco2001">Isaac Blanco</a></div>
+    <br>
     <div id="centerElements">
         <div class ="centerItem" id="menu">
-            <h4>Speed of step</h4>
+            <h4>Time per step</h4>
             <div id="speedButtons">
-                <button class="speedButtons">1 ms</button>
-                <button class="speedButtons">100 ms</button>
-                <button class="speedButtons">1 seg</button>
-                <button class="speedButtons">5 seg</button>
-                <button class="speedButtons">10 seg</button>
+                <button class="speedButtons" value="1">1 ms</button>
+                <button class="speedButtons" value="100">100 ms</button>
+                <button class="speedButtons" value="1000">1 seg</button>
+                <button class="speedButtons" value="5000">5 seg</button>
+                <button class="speedButtons" value="10000">10 seg</button>
             </div>
             <h4>Grid Size</h4>
             <div>
                 <input type="text" id="dimension" size="10">
                 <button id="createGrid" type="button">Create Grid</button>
             </div>
+            <br>
             <button id="startButton" type="button">Start Simulation</button>
         </div>
+    </div>
+    <div id="footer">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Langton%27s_ant">Langton's Ant Wikipedia</a></li>
+            <li><a href="https://tomdenottelander.com/projects/langtonsant/index.html">Langton's Ant by Tom den Ottelander</a></li>
+        </ul>
     </div>
     <script src="bundle.js"></script>
 </body>
