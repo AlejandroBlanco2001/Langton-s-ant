@@ -10,8 +10,24 @@
 </head>
 <body>
     <h1>Langton Ant Visualization</h1>
-    <button id="startButton" type="button">Start Simulation</button>
-    <input type="text" id="dimension" size="10">
+    <div id="centerElements">
+        <div class ="centerItem" id="menu">
+            <h4>Speed of step</h4>
+            <div id="speedButtons">
+                <button class="speedButtons">1 ms</button>
+                <button class="speedButtons">100 ms</button>
+                <button class="speedButtons">1 seg</button>
+                <button class="speedButtons">5 seg</button>
+                <button class="speedButtons">10 seg</button>
+            </div>
+            <h4>Grid Size</h4>
+            <div>
+                <input type="text" id="dimension" size="10">
+                <button id="createGrid" type="button">Create Grid</button>
+            </div>
+            <button id="startButton" type="button">Start Simulation</button>
+        </div>
+    </div>
     <script src="bundle.js"></script>
 </body>
 </html>

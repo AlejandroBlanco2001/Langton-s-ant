@@ -1,18 +1,51 @@
+body{
+    background-color: #141414;
+}
+
 h1{
     font-family: 'Indie Flower', cursive;
+    color: #d3d3d3;
+}
+
+h4{
+    color: #d3d3d3;
 }
 
 /* Grid container of the cells*/
 #container{
     display: grid;
+    width: 70%;
+}
+
+/* Container of the buttons and grid */  
+#centerElements{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70%;
+    gap: 100px;
+    justify-content: space-around;
+}
+
+/* Rectangle menu with buttons */
+#menu{
+    width: 30%;
+    height: 100%;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* Items in the menu */
+.centerItem{
 }
 
 /* Cells of the grid */
 .cell{
     display: block;
     background-color: white;
-    height: 50px;
+    height: 100%;
     width: 100%;
     text-align: center;
     border: 1px solid black
-};
+}
+

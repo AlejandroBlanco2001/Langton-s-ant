@@ -1,9 +1,17 @@
 import { Board } from "./Board";
 import { Util } from "./Util";
 
-var button = document.getElementById("startButton");
-var board: Board;
+// Button for create grid and start simulation 
+var buttonStart = document.getElementById("startButton");
+var buttonGrid = document.getElementById("createGrid");
+
 var isRunning : boolean = false;
+var board: Board;
+var timePerUpdate : number = 1000;
+
+let speedButtons = document.getElementsByClassName("speedButtons");
+Array.prototype.forEach.call(speedButtons,function(button){console.log(button);});
+// Cells of the grid
 var cells : any[] = [];
 
 function createGrid(dimension: number) {
@@ -11,6 +19,7 @@ function createGrid(dimension: number) {
     document.getElementById("container")?.remove();
     var container = document.createElement("div");
     container.setAttribute("id", "container");
+    container.setAttribute("class","centerItem");
     container.style.setProperty(
         "grid-template-columns",
         "repeat(" + dimension + ",1fr)"
@@ -25,7 +34,9 @@ function createGrid(dimension: number) {
             temp = [];
         }
     }
-    document.body.appendChild(container);
+    let menu = document.getElementById("menu");
+    let centerMenu = document.getElementById("centerElements");
+    centerMenu!.insertBefore(container,menu);
 }
 
 function paint(coordinates: any){
@@ -38,36 +49,59 @@ function paint(coordinates: any){
     }
 }
 
-button!.onclick = function () {
-    if(!isRunning){
-        isRunning = true;
-        let dimension: number = Number(
-            (
-                (<HTMLInputElement>(
-                    document.getElementById("dimension")
-                )) as HTMLInputElement
-            ).value
-        );
-        if (dimension <= 0) {
-            return null;
-        }
-        while (dimension % 2 == 0) {
-            alert("Por favor, ingrese un numero impar y mayor que 0");
-            return null;
-        }
-        let interval: any = null;
-        board = new Board(dimension);
-        createGrid(dimension);
-        interval = setInterval(() => {
-            if(!board.isTerminated() && !board.isOutside()){
-                paint(board.getAnt().getCoordinates());
-                board.move();
-            }else{
-                clearInterval(interval);
-                isRunning = false;
+buttonStart!.onclick = function () {
+    let grid = document.getElementById("container");
+    if(grid != null || grid != undefined){
+        if(!isRunning){
+            isRunning = true;
+            let dimension: number = Number(
+                (
+                    (<HTMLInputElement>(
+                        document.getElementById("dimension")
+                    )) as HTMLInputElement
+                ).value
+            );
+            if (dimension <= 0) {
+                return null;
             }
-        }, 1000);
+            while (dimension % 2 == 0) {
+                alert("Por favor, ingrese un numero impar y mayor que 0");
+                return null;
+            }
+            let interval: any = null;
+            board = new Board(dimension);
+            interval = setInterval(() => {
+                if(!board.isTerminated() && !board.isOutside()){
+                    paint(board.getAnt().getCoordinates());
+                    board.move();
+                }else{
+                    clearInterval(interval);
+                    isRunning = false;
+                }
+            }, timePerUpdate);
+        }else{
+            alert("EJECUCCION CORRIENDO");
+        }
     }else{
-        alert("EJECUCCION CORRIENDO");
+        alert("CREA UN GRID PRIMERO");
     }
 };
+
+buttonGrid!.onclick = function () {
+    let dimension: number = Number(
+        (
+            (<HTMLInputElement>(
+                document.getElementById("dimension")
+            )) as HTMLInputElement
+        ).value
+    );
+    if (dimension <= 0) {
+        return null;
+    }
+    while (dimension % 2 == 0) {
+        alert("Por favor, ingrese un numero impar y mayor que 0");
+        return null;
+    }
+    createGrid(dimension);
+}
+
