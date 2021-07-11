@@ -4,18 +4,23 @@ import { Util } from "./Util";
 // Button for create grid and start simulation 
 var buttonStart = document.getElementById("startButton");
 var buttonGrid = document.getElementById("createGrid");
+var antFigure = document.createElement("div");
+antFigure.setAttribute("id","ant");
 
 var isRunning : boolean = false;
 var board: Board;
 var timePerUpdate : number = 1000;
 
+// Grab all the buttons for the speed
 let speedButtons = document.getElementsByClassName("speedButtons");
+// Put a listener for set up the speed of the update for each button
 Array.prototype.forEach.call(speedButtons,function(button){
     button.addEventListener("click",function(){
         timePerUpdate = Number(button.value);
         alert("TIME PER UPDATE : " + timePerUpdate);
     });
 ;})
+
 // Cells of the grid
 var cells : any[] = [];
 
@@ -54,6 +59,12 @@ function paint(coordinates: any){
     }
 }
 
+function paintAnt(coordinates: any){
+    let matrixCoord = Util.mapCoordinates(board.dimension,coordinates);
+    let cell = (<HTMLElement> cells[matrixCoord.x][matrixCoord.y]); 
+    cell.appendChild(antFigure);
+}
+
 buttonStart!.onclick = function () {
     let grid = document.getElementById("container");
     if(grid != null || grid != undefined){
@@ -77,7 +88,9 @@ buttonStart!.onclick = function () {
             board = new Board(dimension);
             interval = setInterval(() => {
                 if(!board.isTerminated() && !board.isOutside()){
-                    paint(board.getAnt().getCoordinates());
+                    let coordinates = board.getAnt().getCoordinates();
+                    paintAnt(coordinates);
+                    paint(coordinates);
                     board.move();
                 }else{
                     clearInterval(interval);

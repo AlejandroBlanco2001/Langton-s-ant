@@ -22,9 +22,9 @@ a{
 #ant{
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid white;
+    border-left: 3vh solid transparent;
+    border-right: 3vh solid transparent;
+    border-bottom: 6vh solid white;
 }
 
 #author{
@@ -64,11 +64,12 @@ a{
 
 /* Cells of the grid */
 .cell{
-    display: block;
+    display: flex;
     background-color: transparent;
     height: 100%;
     width: 100%;
-    text-align: center;
     border: 1px solid #5A5A5A;
+    align-items: center;
+    justify-content: center;
 }
 
