@@ -4,7 +4,8 @@ import { Util } from "./Util";
 // Button for create grid and start simulation 
 var buttonStart = document.getElementById("startButton");
 var buttonGrid = document.getElementById("createGrid");
-var antFigure = document.createElement("div");
+var antFigure = document.createElement("img");
+antFigure.src = "../public/ant.png";
 antFigure.setAttribute("id","ant");
 
 var isRunning : boolean = false;

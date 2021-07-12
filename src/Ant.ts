@@ -23,25 +23,34 @@ export class Ant{
     }
 
     rotate(color: boolean){
+        let antImage = document.getElementById("ant");
         if(color == true){
             if(this.facing == "R"){
                 this.facing = "U";
+                antImage?.style.setProperty("rotate","-90deg");
             }else if(this.facing == "U"){
                 this.facing = "L";
+                antImage?.style.setProperty("rotate","-90deg");
             }else if(this.facing == "L"){
                 this.facing = "D"
+                antImage?.style.setProperty("rotate","90deg");
             }else{
                 this.facing = "R";
+                antImage?.style.setProperty("rotate","90deg");
             }
         }else{
             if(this.facing == "R"){
                 this.facing = "D";
+                antImage?.style.setProperty("rotate","90deg");
             }else if(this.facing == "U"){
                 this.facing = "R";
+                antImage?.style.setProperty("rotate","90deg");
             }else if(this.facing == "L"){
                 this.facing = "U"
+                antImage?.style.setProperty("rotate","90deg");
             }else{
                 this.facing = "L";
+                antImage?.style.setProperty("rotate","-90deg");
             }
         }
     }
