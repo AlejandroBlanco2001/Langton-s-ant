@@ -1,3 +1,5 @@
+import { Util } from "./Util";
+
 export class Ant{
     x: number;
     y: number;
@@ -27,13 +29,13 @@ export class Ant{
         if(color == true){
             if(this.facing == "R"){
                 this.facing = "U";
-                antImage?.style.setProperty("rotate","-90deg");
+                antImage?.style.setProperty("rotate","0deg");
             }else if(this.facing == "U"){
                 this.facing = "L";
                 antImage?.style.setProperty("rotate","-90deg");
             }else if(this.facing == "L"){
                 this.facing = "D"
-                antImage?.style.setProperty("rotate","90deg");
+                antImage?.style.setProperty("rotate","180deg");
             }else{
                 this.facing = "R";
                 antImage?.style.setProperty("rotate","90deg");
@@ -41,13 +43,13 @@ export class Ant{
         }else{
             if(this.facing == "R"){
                 this.facing = "D";
-                antImage?.style.setProperty("rotate","90deg");
+                antImage?.style.setProperty("rotate","180deg");
             }else if(this.facing == "U"){
                 this.facing = "R";
                 antImage?.style.setProperty("rotate","90deg");
             }else if(this.facing == "L"){
                 this.facing = "U"
-                antImage?.style.setProperty("rotate","90deg");
+                antImage?.style.setProperty("rotate","0deg");
             }else{
                 this.facing = "L";
                 antImage?.style.setProperty("rotate","-90deg");

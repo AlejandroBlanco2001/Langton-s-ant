@@ -39,12 +39,12 @@ export class Board {
         let previous = { x: this.ant.x, y: this.ant.y };
         let matrix_position = Util.mapCoordinates(this.dimension,previous);
         if (this.isOutside()){
-            alert("CHOCASTE CONTRA LA PARED");
+            alert("You hit the wall");
             this.end = true;
         }else{
             this.ant.move(this.grid[matrix_position.x][matrix_position.y]);
             if(this.isOutside()){
-                alert("CHOCASTE CONTRA LA PARED");
+                alert("You hit the wall");
                 this.end = true;
             }
             this.color(matrix_position);
